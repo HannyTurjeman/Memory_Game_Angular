@@ -1,0 +1,15 @@
+
+  <audio id="audio" (audio)="[audio]"></audio>
+  <header>
+      <h1>Memory Game</h1>
+      <ul id="dashboard">
+          <li>Score: <span>{{score}}</span></li>
+          <li>Steps: <span >{{steps}}</span></li>
+          <li>Timer: <span >{{timer}}</span></li>
+      </ul>
+  </header>
+  <ul id="board" [class.compare]="selection.length === 2">
+      <app-card-item *ngFor="let card of cards" [card]="card" (pickedCard$)="selectedAnswer($event)"></app-card-item>
+  </ul>
+  <button id="restart" (click)="startGame()">Restart</button>
+
